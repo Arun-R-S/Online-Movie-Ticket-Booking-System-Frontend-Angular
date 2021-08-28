@@ -4,6 +4,7 @@ Online Movie Ticket Booking System is a web application that can be used to book
 
 ## Install node_modules
 Run this Command 
+#
 	npm install --save-dev @angular-devkit/build-angular
 
 ## Development server
