@@ -1,0 +1,22 @@
+<div class="m-t-30 p-t-30 p-b-30 bg-light b-r-5 text-dark">
+    <div class="cardz container col-lg-8">
+      <h2 class="text-dark flex-div">
+        <img class="width-50" src="https://img.icons8.com/fluent/96/000000/gas.png" />
+        <span class="valign">Top Rated Movies</span>
+      </h2>
+      <div class="row row-cols-1 p-t-20 p-l-10 p-r-10 p-b-40 row-cols-md-3 g-4">
+        <div class="col " *ngFor="let movie of movieList" >
+          <div class="card card-hover h-100" routerLink="/movies/{{movie.MovieId}}" style="cursor: pointer;box-shadow: 1px 1px 10px black;">
+            <img src="{{APIURL}}{{movie.PosterImage}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h3 style="font-weight: bolder;">{{movie.MovieName}}</h3>
+              <hr>
+              <h5 class="f-s-17">{{movie.Description}}</h5>
+              <h5 class="f-s-17">IMDB: {{movie.Rating}} / 10</h5>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>

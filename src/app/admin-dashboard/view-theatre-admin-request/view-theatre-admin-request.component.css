@@ -1,0 +1,10 @@
+table tbody thead{
+    display: table;
+    width: 100%;
+}
+
+#screen{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}

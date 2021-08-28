@@ -1,0 +1,33 @@
+<div class="container">
+
+</div>
+
+
+
+<div class="container m-w-400 p-t-10 p-b-30 ">
+    
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div *ngIf="invalidLogin" class="mb-3">
+            <div class="alert alert-danger" role="alert">
+                Username or Password is incorrect!
+              </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">User Name</label>
+            <input type="text" formControlName="AdminId" [ngClass]="{ 'is-invalid': submitted && f.AdminId.errors }" placeholder="Username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div *ngIf="submitted && f.AdminId.errors" class="invalid-feedback">
+                <div *ngIf="f.AdminId.errors.required">Username is required</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" placeholder="Password" formControlName="Password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" class="form-control" id="exampleInputPassword1">
+            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                <div *ngIf="f.Password.errors.required">Password is required</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Login</button>
+        
+    </form>
+</div>

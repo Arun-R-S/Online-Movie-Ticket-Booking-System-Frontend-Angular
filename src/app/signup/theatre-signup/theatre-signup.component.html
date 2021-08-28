@@ -1,0 +1,94 @@
+<div  class="container-fluid p-m-30">        
+    <div class="container-fluid col-md-6">
+
+        <h3 class="p-b-10" style="font-weight: 800;">Signup to MoviesYet</h3>
+        <div *ngFor="let e of errorList.error" class="mb-3">
+            <div class=" alert-danger" role="alert">
+                {{e}}
+              </div>
+        </div>
+        
+    </div>
+<form class="container-fluid" [formGroup]="createAUser" (ngSubmit)="onCreate()" novalidate >
+
+    <div class="container-fluid col-md-6">
+        <label for="validationCustom01" class="form-label">First name</label>
+        <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.OwnerFirstName.errors }" formControlName="OwnerFirstName" required>
+        <div *ngIf="submitted && f.OwnerFirstName.errors" class="invalid-feedback">
+            <div *ngIf="f.OwnerFirstName.errors.required">FirstName is required</div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6">
+        <label for="validationCustom02" class="form-label">Last name</label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.OwnerLastName.errors }" type="text" class="form-control" formControlName="OwnerLastName" required>
+        <div *ngIf="submitted && f.OwnerLastName.errors" class="invalid-feedback">
+            <div *ngIf="f.OwnerLastName.errors.required">LastName is required</div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6">
+        <label for="validationCustomUsername" class="form-label">Email</label>
+        <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+            <input [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" type="text" class="form-control" formControlName="Email" aria-describedby="inputGroupPrepend"
+                required>
+        </div>
+        <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+            <div *ngIf="f.Email.errors.required">Email is required</div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6">
+        <label for="validationCustom02" class="form-label">Theatre Name</label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.TheatreName.errors }" type="text" class="form-control" formControlName="TheatreName" required>
+        <div *ngIf="submitted && f.TheatreName.errors" class="invalid-feedback">
+            <div *ngIf="f.TheatreName.errors.required">Theatre Name is required</div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6">
+        <label for="validationCustom02" class="form-label">Theatre Location</label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.Location.errors }" type="text" class="form-control" formControlName="Location" required>
+        <div *ngIf="submitted && f.Location.errors" class="invalid-feedback">
+            <div *ngIf="f.Location.errors.required">Theatre Location is required</div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6">
+        <label for="validationCustom02" class="form-label">License Id</label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.LicenseId.errors }" type="text" class="form-control" formControlName="LicenseId" required>
+        <div *ngIf="submitted && f.LicenseId.errors" class="invalid-feedback">
+            <div *ngIf="f.LicenseId.errors.required">License Id is required</div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6">
+        <label for="validationCustom03" class="form-label">Mobile No</label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.MobileNo.errors }" type="text" class="form-control" id="validationCustom03" formControlName="MobileNo" required>
+        <div *ngIf="submitted && f.MobileNo.errors" class="invalid-feedback">
+            <div *ngIf="f.MobileNo.errors.required">Mobile no is required</div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6">
+        <label for="validationCustom05" class="form-label">Password</label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" type="password" class="form-control" formControlName="Password" required>
+        
+                <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+            <div *ngIf="f.Password.errors.required">Password is required</div>
+        </div>
+
+    </div>
+    <div class="container-fluid col-md-6">
+        <div class="form-check">
+            <input id="agree" class="form-check-input" type="checkbox" value="" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid col-md-6 p-t-15 p-b-15">
+        <button class="btn btn-primary " type="submit">Signup</button>
+        <button class="btn btn-primary m-l-15" onclick="window.history.back();">Go Back</button>
+
+    </div>
+    
+</form>
+</div>

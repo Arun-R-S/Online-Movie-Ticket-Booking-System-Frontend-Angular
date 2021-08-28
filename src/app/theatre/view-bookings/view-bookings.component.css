@@ -1,0 +1,33 @@
+.offline{
+    background-color: rgb(247, 52, 52);
+    border-radius: 5px;
+}
+.online{
+    background-color: rgb(30, 119, 179);
+    border-radius: 5px;
+}
+.seat:hover{
+    background-color: rgb(118, 118, 119);
+}
+
+.seat-image{
+    min-width: 35px;
+    min-height: 35px;
+}
+
+table tbody {
+    display: table;
+    width: 100%;
+}
+
+#screen{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+.refresh:hover{
+    transform: scale(1.1);
+    background-color: black;
+}

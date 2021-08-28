@@ -1,0 +1,32 @@
+.seat:hover{
+    background-color: rgb(118, 118, 119);
+}
+.seat{
+    border-radius: 5px;
+    margin: auto;
+    cursor: pointer;
+}
+.selected{
+    border-radius: 5px;
+    background-color: green;
+    cursor: pointer;
+}
+.disable{
+    background-color: rgb(245, 88, 88);
+    border-radius: 5px;
+    cursor:unset;
+}
+table tbody {
+    display: table;
+    width: 100%;
+}
+
+#screen{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.refresh:hover{
+    transform: scale(1.1);
+    background-color: black;
+}

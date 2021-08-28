@@ -1,0 +1,17 @@
+<div class="container m-w-400 p-t-10 p-b-20 ">
+
+    <form *ngIf="!reset" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="text" formControlName="Email" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" placeholder="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                <div *ngIf="f.Email.errors.required">Mail is required</div>
+            </div>
+        </div>
+        
+        <button [disabled]="loading" type="submit" class="btn btn-success">Reset Password</button>
+        <img class="m-w-50" src="/images/gif/Iphone-spinner-2.gif" *ngIf="loading">
+    </form>
+    
+</div>

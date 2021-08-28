@@ -1,0 +1,152 @@
+<button type="button" id="newscreen" [hidden]="true" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#new">
+    
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder;">New Screen Entry</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="createScreen" (ngSubmit)="create()" novalidate>
+                <table>
+                    
+                    <tr>
+                        <td>
+                            Screen Number
+                        </td>
+                        <td>
+                            
+                            <input type="number" class="form-control" id="new-screen-number" [ngClass]="{ 'is-invalid': submitted && f.ScreenNumber.errors }" formControlName="ScreenNumber" required>
+                            <div *ngIf="submitted && f.ScreenNumber.errors" class="invalid-feedback">
+                                <div *ngIf="f.ScreenNumber.errors.required">Screen Number is required</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total Row
+                        </td>
+                        <td>
+                            <input type="number" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.TotalRow.errors }" formControlName="TotalRow" required>
+                            <div *ngIf="submitted && f.TotalRow.errors" class="invalid-feedback">
+                                <div *ngIf="f.TotalRow.errors.required">Total Row is required</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total Column
+                        </td>
+                        <td>
+                            <input type="number" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.TotalColumn.errors }" formControlName="TotalColumn" required>
+                            <div *ngIf="submitted && f.TotalColumn.errors" class="invalid-feedback">
+                                <div *ngIf="f.TotalColumn.errors.required">Total Column is required</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close-newmodal" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="create()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" id="editbutton" [hidden]="true" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">
+    
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder;">Edit Screen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td>
+                            <h5>Screen Number :</h5>
+                        </td>
+                        <td>
+                            <input type="number" id="screen-number" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total Row
+                        </td>
+                        <td>
+                            <input type="number" id="total-row">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total Column
+                        </td>
+                        <td>
+                            <input type="number" id="total-column">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="update-close-button" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="save()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid m-t-3">
+    <button class="btn btn-outline-success" (click)="new()">Add Screen<span class="material-icons-round btn-v-align">
+        add_box
+        </span></button>
+</div>
+<table class="table table-hover">
+    
+    <thead>
+        <tr>
+
+            <th scope="col">Screen Number</th>
+            <th scope="col">Rows</th>
+            <th scope="col">Column</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let screen of screenList">
+
+            <td>{{screen.ScreenNumber}}</td>
+            <td>{{screen.TotalRow}}</td>
+            <td>{{screen.TotalColumn}}</td>
+            <td>
+                <button class="btn btn-outline-primary m-r-5" (click)="edit(screen.ScreenNumber,screen.TotalRow,screen.TotalColumn)">
+                    <span class="material-icons-round btn-v-align">
+                        edit
+                        </span></button>
+                <button class="btn btn-outline-danger m-r-5" (click)="delete(screen.ScreenNumber)">
+                    <span class="material-icons-round btn-v-align">
+                        delete
+                        </span></button>
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>

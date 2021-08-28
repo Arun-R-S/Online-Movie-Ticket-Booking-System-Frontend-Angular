@@ -1,0 +1,40 @@
+<div class="container">
+
+</div>
+
+
+
+<div class="container m-w-400 p-t-10 p-b-20 ">
+    <div class="container-fluid">
+        <img src="/images/favicon.png" class="m-w-180 b-r-100 bg">
+        <h3 class=" p-b-10">Login as Theatre Admin</h3>
+    </div>
+    <form [formGroup]="taLoginform" (ngSubmit)="onSubmit()">
+        <div *ngIf="invalidLogin" class="mb-3">
+            <div class="alert alert-danger" role="alert">
+                Email or Password is incorrect!
+              </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="text" formControlName="Email" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" placeholder="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                <div *ngIf="f.Email.errors.required">Username is required</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" placeholder="Password" formControlName="Password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" class="form-control" id="exampleInputPassword1">
+            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                <div *ngIf="f.Password.errors.required">Password is required</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Login</button><a routerLink='/forgotPassword/theatre-admin' class="m-l-20" >Forgot Password?</a>
+        <div class="p-t-10">Need a Theatre Admin account? <a routerLink="/signup/theatre">Sign Up</a></div>
+    </form>
+</div>
+<hr>
+<div class="container m-w-400 ">
+    <span>Login as User? <a routerLink="/login/user">Login Here</a></span>
+</div>

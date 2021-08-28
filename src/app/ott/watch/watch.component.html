@@ -1,0 +1,31 @@
+<div class="container-fluid" style="text-align: center;">
+  <h3>
+    {{moviedetail.movie.MovieName}}
+  </h3>
+  <span class="material-icons">
+    volume_up
+    </span>
+  <input id="vol-control" type="range" min="0" max="100" step="1" (input)="SetVolume()" (change)="SetVolume()">
+  <div class="container" style="max-width: 800px;text-align: center;">
+    <div class="device-mockup imac mb-small" style="text-align: center;">
+      <div class="device" style="max-height: 600px;max-width: 780px;text-align: center;">
+        <div class="screen" style="pointer-events: all;text-align: center;background-color: black;">
+          <!-- <iframe width="100%" height="100%" [src]="videoUrl" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0" style="position: absolute;">
+                    </iframe> -->
+          <video id="videofile" style="background-color: black;" width="100%" height="100%" controls controlsList="nodownload" >
+
+            <source [src]="videoUrl" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <video id="videofile" class="b-r-10 "  width="900" height="500" controls controlsList="nodownload">
+    
+  <source  [src]="videoUrl" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>  -->
+
+</div>

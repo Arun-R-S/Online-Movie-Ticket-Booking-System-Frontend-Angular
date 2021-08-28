@@ -1,0 +1,24 @@
+
+<div class="container m-t-20">
+    <h1>Tickets Available for Today</h1>
+    <div class="row " >
+        <div class="col-lg-4 bg-white margin-10 m-t-5 b-r-7 m-w-312" *ngFor="let theatre of theatreList" style="cursor: pointer;box-shadow: 1px 1px 10px black;">
+          <img src="{{APIURL}}{{theatre.PosterImage}}" class="m-w-300 m-h-200">
+          <h3><img src="images/svg/dvd_logo.svg" class="width-30" >{{theatre.MovieName}}</h3>
+          <p><img src="images/svg/department.svg" class="m-w-30">{{theatre.TheatreName}},{{theatre.Location}}</p>
+          <p><img src="images/svg/calendar.svg" class="m-w-30">Show Date : {{theatre.ShowDate|date}}</p>
+          <p><img src="images/svg/clock.svg" class="m-w-30">Show Time : {{theatre.ShowTime|date:'shortTime'}}</p>
+          <p>
+              <a class="btn btn-primary m-l-5" routerLink='/bookTickets/seatSelecting/{{theatre.ScheduleId}}' role="button">Book Tickets »</a>
+              <a class="btn btn-info m-l-5" routerLink='/movies/{{theatre.MovieId}}' role="button">Movie Details »</a>
+          </p>
+        </div><!-- /.col-lg-4 -->
+
+        <div *ngIf="!shows" class="container">
+          <h3>No shows available!</h3>
+        </div>
+       
+        
+      </div>
+
+</div>

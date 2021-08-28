@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "myGilmer";
+    src: url("/font/Gilmer-Light.otf");
+}
+@font-face {
+    font-family: "myPatron";
+    src: url("/font/Patron-400.otf");
+}
+@font-face{
+  font-family: "ralewayMedium";
+  src : url("/font/raleway/Raleway-Regular.ttf");
+}
+@font-face{
+  font-family: "ralewayLight";
+  src : url("/font/raleway/Raleway-Light.ttf");
+}
+@font-face{
+  font-family: "ralewayBold";
+  src : url("/font/raleway/Raleway-Bold.ttf");
+}
+@font-face{
+  font-family: "ralewayExtraBold";
+  src : url("/font/raleway/Raleway-ExtraBold.ttf");
+}
+@font-face{
+  font-family: "robotoMediums";
+  src : url("/font/Roboto-Medium.woff2") format('woff2');
+}
+@font-face{
+  font-family: "leagueSpartan";
+  src : url("/font/LeagueSpartan-Bold.otf") ;
+}
+@font-face{
+  font-family: "metropolisRegular";
+  src:url("/font/Metropolis-Regular.otf");
+}
+.gilmer-font{
+  font-family: var(--bs-font-gilmer);  
+}
+.patron-font{
+  font-family: var(--bs-font-patron);
+}
+.raleway-medium-font{
+  font-family: "ralewayMedium";
+  font-weight: 600;
+}
+.raleway-ligth-font{
+  font-family: "ralewayLight";
+}
+.raleway-bold-font{
+  font-family: "ralewayBold";
+}
+.raleway-extrabold-font{
+  font-family: "ralewayExtraBold";
+}
+.roboto-font{
+  font-family: "robotoMediums";
+}
+.league-spartan-font{
+  font-family: "leagueSpartan";
+  font-weight:lighter;
+}
+.meteropolis-regular-font{
+  font-family: "metropolisRegular";
+}
+.btn{
+  border-radius: 4px !important;
+}
+
+
+.bg-light{
+  background-color: rgb(206, 209, 212);
+}
+
+.btn-v-align{
+  vertical-align: middle;
+  
+}
+.bootbox-close-button{
+  float: right;
+  border: transparent;
+  box-shadow: 0px 0px 2px black;
+}
+.bootbox-close-button:hover{
+  background-color: rgb(197, 199, 201);
+}
+
+.btn:active{
+  transform: scale(0.9);
+}

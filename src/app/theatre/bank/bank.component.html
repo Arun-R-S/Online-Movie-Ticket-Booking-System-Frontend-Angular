@@ -1,0 +1,106 @@
+<button type="button" id="newscreen" [hidden]="true" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#new">
+    
+</button>
+<!-- Modal -->
+<div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder;">New Bank Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <form [formGroup]="createScreen" (ngSubmit)="create()" novalidate>
+                <table style="width: 100%;">
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Bank Name" class="form-control" id="new-screen-number" [ngClass]="{ 'is-invalid': submitted && f.BankName.errors }" formControlName="BankName" required>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Account Holder Name" class="form-control" id="new-screen-number" [ngClass]="{ 'is-invalid': submitted && f.AccountName.errors }" formControlName="AccountName" required>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Account No" class="form-control" id="new-screen-number" [ngClass]="{ 'is-invalid': submitted && f.AccountNo.errors }" formControlName="AccountNo" required>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="IFSC Code" class="form-control" id="new-screen-number" [ngClass]="{ 'is-invalid': submitted && f.IFSCCode.errors }" formControlName="IFSCCode" required>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Email" class="form-control" id="new-screen-number" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" formControlName="Email" required>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Mobile No" class="form-control" id="new-screen-number" [ngClass]="{ 'is-invalid': submitted && f.MobileNo.errors }" formControlName="MobileNo" required>
+                            
+                        </td>
+                    </tr>
+                    
+                </table>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close-newmodal" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="create()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button *ngIf="accountstatus" class="btn btn-outline-success margin-10" (click)="new()">New
+    <span class="material-icons-round btn-v-align" (click)="new()">
+        add_box
+    </span>
+</button>
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+
+            <th scope="col">Account Holder Number</th>
+            <th scope="col">Account Name</th>
+            <th scope="col">IFSC Code</th>
+            <th scope="col">Bank Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile No</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr >
+
+            <td>{{account.AccountNo}}</td>
+            <td>{{account.AccountName}}</td>
+            <td>{{account.IFSCCode}}</td>
+            <td>{{account.BankName}}</td>
+            <td>{{account.Email}}</td>
+            <td>{{account.MobileNo}}</td>
+            <td>
+                <div class="btn-group">
+                
+                    <button (click)="delete(account.TheatreId)" class="btn btn-outline-danger m-r-5">
+                        <span class="material-icons-round btn-v-align">
+                            delete
+                        </span></button>
+                </div>
+
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>

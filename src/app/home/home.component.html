@@ -1,0 +1,33 @@
+<h1 class="color-yellow f-s-55 p-t-30">Have you seen this movie yet?</h1>
+
+<div id="carouselExampleIndicators" class="carousel slide m-w-700 m-h-700 m-l-a m-r-a b-r-20" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner b-r-10">
+    <div routerLink="/movies?id=1" class="carousel-item b-r-10 active">
+      <img src="/images/movies/mandela.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div routerLink="/movies?id=2" class="carousel-item">
+      <img src="/images/movies/karnan.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div routerLink="/movies?id=3" class="carousel-item">
+      <img src="/images/movies/soorarai_potru.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<app-movielist></app-movielist>

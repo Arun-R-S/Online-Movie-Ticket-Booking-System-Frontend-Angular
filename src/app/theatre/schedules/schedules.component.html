@@ -1,0 +1,50 @@
+<button class="btn btn-outline-success margin-10" routerLink='/newschedule'>New
+    <span class="material-icons-round btn-v-align">
+        add_box
+    </span>
+</button>
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+
+            <th scope="col">Screen Number</th>
+            <th scope="col">Movie name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Ticket Price</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of scheduleList">
+
+            <td>{{s.s.ScreenNumber}}</td>
+            <td>{{s.Movie.MovieName}}</td>
+            <td>{{s.TheatreSchedule.ShowDate|date}}</td>
+            <td>{{s.TheatreSchedule.ShowTime|date :'shortTime'}}</td>
+            <td>Rs.{{s.TheatreSchedule.TicketPrice}}/-</td>
+            <td>
+                <div class="btn-group">
+                    <button routerLink="/soldTickets/{{s.TheatreSchedule.ScheduleId}}"
+                        class="btn btn-outline-info m-r-5">
+                        <span class="material-icons">
+                            confirmation_number
+                            </span></button>
+                    <button routerLink="/viewBookings/{{s.TheatreSchedule.ScheduleId}}"
+                        class="btn btn-outline-primary m-r-5">
+                        <span class="material-icons-round btn-v-align">
+                            visibility
+                        </span></button>
+                    <button class="btn btn-outline-danger m-r-5" (click)="delete(s.TheatreSchedule.ScreenNumber)">
+                        <span class="material-icons-round btn-v-align">
+                            delete
+                        </span></button>
+                </div>
+
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>

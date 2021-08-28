@@ -1,0 +1,55 @@
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- Top container -->
+
+
+<!-- Sidebar/menu -->
+<div >
+    
+    <span class="w3-bar-item w3-right">MoviesYet</span>
+  </div>
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:300px;" id="mySidebar">
+    <br>
+    <div class="w3-container w3-row">
+        <div class="w3-col s4">
+            <img src="../images/ceo.jpg" class="w3-circle w3-margin-right" style="width:80px; box-shadow: 0px 0px 5px grey;">
+        </div>
+        <div class="w3-col s8 w3-bar">
+            <span>Welcome, <strong>Admin</strong></span><br>
+            <a href="#" class="w3-bar-item w3-button notification">
+                <span><img class="width-50" src="../images/svg/icons8_mail_1.svg"></span>
+                <span class="badge"></span>
+            </a>
+            <a href="#" class="w3-bar-item w3-button"><img class="width-50" src="../images/svg/services.svg"></a>
+
+        </div>
+    </div>
+    <hr>
+    <div class="w3-container">
+        <h5>Dashboard</h5>
+    </div>
+    <div class="w3-bar-block">
+        <a class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" (click)="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a routerLink="/admin/myDashboard" class="w3-bar-item w3-button w3-padding"><img class="width-30" src="/images/svg/reading.svg">  Overview</a>
+        <a [routerLink]="['//admin/myDashboard', {outlets: {side: ['viewTheatreRequest']}}]" class="w3-bar-item w3-button w3-padding"><img class="width-30" src="/images/svg/icons8_add_database_1.svg">  View Theatre Admin Request</a>
+        
+
+    </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;">
+
+    <!-- Header -->
+    <button class="btn btn-outline-primary w3-hide-large " (click)="w3_open()"><span class="material-icons btn-v-align">
+        menu
+        </span> &nbsp;Menu</button>
+    <router-outlet name="side" (activate)="true"></router-outlet>
+    
+
+    <!-- End page content -->
+</div>

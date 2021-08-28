@@ -1,0 +1,68 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container container-fluid ">
+      <a class="navbar-brand f-s-30" routerLink="/home"><img src="/images/favicon.png" class="m-w-60 b-r-100">MoviesYet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul *ngIf="storage['Role']=='User' || (storage['Role']!='TheatreAdmin' && storage['Role']!='Admin')" class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/bookTickets">Book Tickets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ott">OTT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/allmovies">Movies</a>
+          </li>
+        </ul>
+
+        <ul *ngIf="storage['Role']=='Admin'" class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/myDashboard">My Dashboard</a>
+          </li>
+        </ul>
+
+        <ul *ngIf="storage['Role']=='TheatreAdmin'" class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/theatre">My Theatre</a>
+          </li>
+        </ul>
+
+        <div class="d-flex" style="color:white;">
+          <div *ngIf="loginStatus" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="images/svg/manager.svg" class="width-50"> 
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              
+              <li><a class="dropdown-item">
+                <p *ngIf="loginStatus && storage['Role']=='Admin'">Admin</p>
+                 <p *ngIf="loginStatus && storage['Role']=='User'">Welcome! {{storage['FirstName']}}</p>
+          <p *ngIf="loginStatus && storage['Role']=='TheatreAdmin'">Welcome! {{storage['OwnerFirstName']}}</p>
+              </a></li>
+              <li *ngIf="loginStatus && storage['Role']=='User'"><a class="dropdown-item" routerLink="forgotPassword/user">Change Password</a></li>
+              <li *ngIf="loginStatus && storage['Role']=='TheatreAdmin'"><a class="dropdown-item" routerLink="forgotPassword/theatre-admin">Change Password</a></li>
+              <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+            </ul>
+          </div>
+           
+
+          
+
+          <button *ngIf="!loginStatus" class="btn btn-success" routerLink="/login/user" >Login/Register</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+      <router-outlet></router-outlet>
+  </div>
+

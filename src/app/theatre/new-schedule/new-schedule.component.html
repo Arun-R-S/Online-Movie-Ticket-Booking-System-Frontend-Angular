@@ -1,0 +1,35 @@
+<h1>Create New Schedule</h1>
+<form class="m-w-400" [formGroup]="createSchedule" (ngSubmit)="submit()" novalidate>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Movie</label>
+        <input class="form-control" list="mname" id="movieName" placeholder="Type to search movie..." [ngClass]="{ 'is-invalid': submitted && f.MovieName.errors }" formControlName="MovieName" required>
+        <datalist id="mname">
+            <option *ngFor="let m of movieName" value="{{m.MovieName}}" id="{{m.MovieId}}"></option>
+        </datalist>
+
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Screen Number</label>
+        <input class="form-control" list="sno" id="screenNumber" placeholder="Type to search Screen Number..." [ngClass]="{ 'is-invalid': submitted && f.ScreenNumber.errors }" formControlName="ScreenNumber" required>
+        <datalist id="sno">
+            <option *ngFor="let s of screenNumber" value="{{s.ScreenNumber}}" id="{{s.ScreenNumber}}"></option>
+        </datalist>
+
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Show Date</label>
+        <input type="date" class="form-control" id="showDate" aria-describedby="emailHelp" [ngClass]="{ 'is-invalid': submitted && f.ShowDate.errors }" formControlName="ShowDate" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Show Time</label>
+        <input type="time" class="form-control" id="showTime" [ngClass]="{ 'is-invalid': submitted && f.ShowTime.errors }" formControlName="ShowTime" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Ticket Price (in Rs.)</label>
+        <input type="number" class="form-control" id="ticketPrice" [ngClass]="{ 'is-invalid': submitted && f.TicketPrice.errors }" formControlName="TicketPrice" required>
+    </div>
+    
+
+
+    <button type="button" (click)="submit()" class="btn btn-primary">Submit</button>
+</form>

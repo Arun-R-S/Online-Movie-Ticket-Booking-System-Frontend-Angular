@@ -1,0 +1,23 @@
+<div class="container-fluid" >
+    <h1>All Movies</h1>
+    <div class="row" style="margin: auto;">
+        <div *ngFor="let movie of moviesList" class="card mb-3 ott-card m-r-15 m-h-120" style="max-width: 580px;cursor: pointer;box-shadow: 1px 1px 10px black;" >
+            <div routerLink='/movies/{{movie.MovieId}}' class="row  g-0">
+                
+                <div  class="col-md-4">
+                    <img src="{{APIURL}}/{{movie.PosterImage}}" class="img-fluid rounded" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="p-l-15">
+                        <h3 style="font-weight: bolder;">{{movie.MovieName}}</h3>
+                        <h5 class="f-s-17">{{movie.Description}}</h5>
+                        <h5 class="f-s-19"><small class="text-muted">IMDB : {{movie.Rating}}</small></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+</div>

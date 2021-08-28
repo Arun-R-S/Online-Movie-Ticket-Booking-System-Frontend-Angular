@@ -1,0 +1,121 @@
+
+<div class="container text-dark ">
+    <h3 id="h3">
+        <table>
+            <tr>
+                <td style="border-bottom: 1px solid black;">
+                    <button onclick="window.history.back();" class=" btn-outline-danger">
+                        <span class="material-icons">
+                            arrow_back
+                            </span>
+                    </button> {{todayShow[0].TheatreName}}, {{todayShow[0].Location}}
+                </td>
+            </tr>
+        </table>
+
+    </h3>
+    <div id="ticket_close_soon" class="bg-info b-r-3" style="display: none;text-align: center;">
+        <img src="images/svg/icons8_warning.svg" class="m-w-40 m-h-30">Closing Soon
+    </div>
+    <div id="ticket_closed" class="bg-danger text-light b-r-3" style="display: none;text-align: center;">
+        <img src="images/svg/icons8_warning.svg" class="m-w-40 m-h-30">Tickets Closed
+    </div>
+    <table class="f-s-15" style="min-width:300px;">
+        <tr>
+            <td><img src="images/svg/icons8_theatre_curtain.svg" class="m-w-40"> Screen no</td>
+            <td> : {{todayShow[0].SeatingDetails.ScreenNumber}}</td>
+        </tr>
+        <tr>
+            <td><img src="images/svg/dvd_logo.svg" class="m-w-40"> Movie</td>
+            <td> : {{todayShow[0].MovieDetail.MovieName}}</td>
+        </tr>
+        <tr>
+            <td><img src="images/svg/icons8_two_tickets.svg" class="m-w-40">Available Tickets</td>
+            <td id="ticket_available_status"> : {{remainingTickets}} out of {{totalTicket}}</td>
+        </tr>
+        <tr>
+            <td><img src="images/svg/icons8_two_tickets.svg" class="m-w-40">Sold Tickets</td>
+            <td id="ticket_available_status"> : {{online.length+offline.length}}</td>
+        </tr>
+        <tr>
+            <td><img src="images/svg/icons8_wi-fi.svg" class="m-w-40">Online Bookings</td>
+            <td id="ticket_available_status"> : {{online.length}}</td>
+        </tr>
+        <tr>
+            <td><img src="images/svg/icons8_wi-fi_off.svg" class="m-w-40">Offline Bookings</td>
+            <td id="ticket_available_status"> : {{offline.length}}</td>
+        </tr>
+        <tr>
+            <td><img src="images/svg/currency_exchange.svg" class="m-w-40">Ticket Price</td>
+            <td id="ticket_available_status"> : Rs.{{todayShow[0].Schedule.TicketPrice}}/-</td>
+        </tr>
+        <tr>
+            <td><img src="images/svg/clock.svg" class="m-w-40">Show Time</td>
+            <td id="ticket_available_status"> : {{todayShow[0].Schedule.ShowDate|date}} /  {{todayShow[0].Schedule.ShowTime|date:'shortTime'}} </td>
+        </tr>
+        <tr>
+        
+        
+        </tr>
+    </table>
+    <!-- Button trigger modal -->
+    
+
+
+    
+    
+
+
+    <div id="screen" class="m-t-70 m-b-90" style="text-align: center;">
+        <h1 style="margin: auto;text-align:center;">
+        <img class="p-b-20" style="margin: auto;text-align:center;" src="images/screen-thumb.png">
+        </h1>
+        
+        <table style="min-width: 600px; max-width: 100%;margin: auto;text-align:center;">
+           
+            <tbody style="text-align: center;">
+                <tr *ngFor="let row of total_row">
+                    <td style="width: 60px;" *ngFor="let col of total_seat_per_row " >
+                            <div *ngIf='col==0'>
+                                {{(row+10).toString(36).toUpperCase()}}
+                            </div>
+                            <div class="seat" id="{{(row+10).toString(36).toUpperCase()}}{{col}}" *ngIf='col!=0'>
+                                <img class="seat-image" src="images/svg/seat.svg">
+                                <p class="m-l-13">{{col}}</p>
+                            </div>
+                            
+                    <td>
+                        
+                    
+                </tr>
+                
+            </tbody>
+            
+        </table>
+        
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<footer class="container p-t-10 p-b-10"
+        style="position:fixed;bottom: 0px;background-color: rgb(221, 216, 216); width: 100%;text-align: center; box-shadow: 0px -1px 5px grey;">
+    <span class="border-1 m-r-20">
+        <img src="images/seat/seat.svg" class="m-w-30"> Available
+    </span>
+    <span class="border-1 m-r-20">
+        <img src="images/seat/seat.svg" class="m-w-30 online"> Online
+    </span>
+    <span class="border-1 m-r-20">
+        <img src="images/seat/seat.svg" class="m-w-30 m-l-10 b-r-3 offline" >Offline
+    </span>
+    <span class="border-1 m-r-20">
+        <img src="images/seat/seat_cross.svg" class="m-w-30 m-l-10" >
+        Not Available
+    </span>
+    <span class="border-1 m-r-20" (click)='refresh()'>
+        <img src="images/svg/icons8_refresh.svg" class="m-w-30 m-l-10 refresh" >
+        
+    </span>
+</footer>

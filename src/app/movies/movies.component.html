@@ -1,0 +1,44 @@
+
+
+<div class="row bg-white m-t-20 p-b-40 b-r-10" style="box-shadow: 1px 1px 100px -50px black;">
+    <div class="row p-t-70 ">
+        <div class="col">
+            <img src="{{APIURL}}{{moviedetail.movie.PosterImage}}" style="min-width: 277px;" class="figure-img img-fluid rounded" />
+        </div>
+        <div class="col raleway-bold-font b-r-10">
+            <div class="alert-danger f-s-45 patron-font" style="position: relative; padding: 0rem 1rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; background-color: lightgoldenrodyellow; color: black;" role="alert">
+                {{moviedetail.movie.MovieName}}
+            </div>
+
+            <label class="input-group "><span class="sub-title">Genre : </span> {{moviedetail.movie.Genre}}</label>
+            <label class="input-group "><span class="sub-title">Release Date : </span>{{moviedetail.movie.ReleaseDate}} </label>
+            <label class="input-group "><span class="sub-title">Description : </span> {{moviedetail.movie.Description}}</label>
+            <label class="input-group "><span class="sub-title">Rating : </span>{{moviedetail.movie.Rating}}</label>
+            
+            <div class="row">
+                <div class="col">
+                    
+                        <button class="btn btn-primary m-l-9" [disabled]="!OTT" routerLink='/ott/watch/{{moviedetail.movie.MovieId}}'>
+
+                            <span class="material-icons" style="vertical-align: middle;">
+                                play_circle
+                            </span>
+
+                            Play
+                        </button>
+                 
+                        <button class="btn btn-success m-l-9" [disabled]="!Tickets" routerLink='/bookTickets/seatSelecting/{{moviedetail.ticket}}'>
+                            <span class="material-icons" style="vertical-align: middle;">
+                                confirmation_number
+                            </span>
+                            Book
+                        </button>
+ 
+                </div>
+                <div class="col">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
