@@ -3,11 +3,11 @@
 Online Movie Ticket Booking System is a web application that can be used to book tickets for a movie. The main objective of our project is to design a web application that caters to ticket sales for movies, plays, concerts etc. The proposed system will be implemented using ASP.NET which helps to develop the website in a more enhanced way. The web application will also act as an over-the-top (OTT) platform, so that the user can view the streaming content which is available for the subscribed users. Through this application the users can experience the movie in theatre as well in home.
 
 ## Run this project
-	Step 1:
+Step 1:
 		Clone this project first
-	Step 2:
+Step 2:
 		Open the folder with VS Code or Command Prompt
-	Step 3:
+Step 3:
 		Run this Command `npm install --save-dev @angular-devkit/build-angular`
 
 ## Development server
